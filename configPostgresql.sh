@@ -233,8 +233,8 @@ MAX_MEM_MB=$(echo "scale=0; $MAX_MEM_KB/1024" | bc -l)
 SHARED_BUFFERS=$(echo "scale=0; $MAX_MEM_MB * $SHARED_BUFFER_RATIO" | bc -l | cut -d'.' -f1)
 # There has been debate on this value on the postgresql mailing lists.
 # You might not get any performance gain over 8 GB.  Please test!
-if [ $SHARED_BUFFERS -gt 12000 ]; then
-       SHARED_BUFFERS=12000MB;
+if [ $SHARED_BUFFERS -gt 8000 ]; then
+       SHARED_BUFFERS=8000MB;
 else
        SHARED_BUFFERS="$SHARED_BUFFERS"MB
 fi
